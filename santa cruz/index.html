@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Santa Cruz F.C. — A História do Tricolor do Arruda</title>
+<meta name="description" content="A história completa do Santa Cruz Futebol Clube, desde sua fundação em 1914 no Pátio do Livramento até os dias atuais." />
+<link rel="icon" type="image/png" href="escudo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --vermelho:#E30613;
+    --vermelho-escuro:#a30410;
+    --preto:#0a0a0a;
+    --preto-2:#181818;
+    --branco:#ffffff;
+    --cinza:#cfcfcf;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--preto);
+    color:var(--branco);
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.02em}
+  a{color:var(--vermelho);text-decoration:none}
+
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,10,10,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:3px solid var(--vermelho);
+  }
+  .nav{
+    max-width:1200px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;
+  }
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo img{height:46px;width:46px;filter:drop-shadow(0 2px 8px rgba(227,6,19,.5))}
+  .logo span{font-family:'Oswald',sans-serif;font-size:1.25rem;text-transform:uppercase}
+  .logo small{color:var(--vermelho);display:block;font-size:.65rem;letter-spacing:.25em}
+  nav ul{display:flex;gap:6px;list-style:none;flex-wrap:wrap}
+  nav a{
+    color:var(--cinza);padding:8px 14px;font-size:.85rem;
+    text-transform:uppercase;font-weight:600;letter-spacing:.1em;
+    border-radius:4px;transition:all .2s;
+  }
+  nav a:hover{color:var(--branco);background:var(--vermelho)}
+
+  /* HERO */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(227,6,19,.35), transparent 60%),
+      linear-gradient(135deg,#0a0a0a 0%,#1a0205 60%,#5a0810 100%);
+    padding:90px 24px;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:repeating-linear-gradient(45deg,rgba(227,6,19,.08) 0 10px,transparent 10px 20px);
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+  }
+  .hero h1{font-size:clamp(2.5rem,6vw,5rem);line-height:.95}
+  .hero h1 .red{color:var(--vermelho)}
+  .hero h1 .stroke{-webkit-text-stroke:1.5px var(--branco);color:transparent}
+  .hero p.lead{margin-top:20px;max-width:480px;color:var(--cinza);font-size:1.1rem}
+  .badge{display:inline-block;color:var(--vermelho);font-size:.75rem;letter-spacing:.4em;font-weight:700;margin-bottom:14px}
+  .cta{
+    display:inline-block;margin-top:26px;padding:14px 28px;
+    background:linear-gradient(135deg,var(--vermelho),var(--vermelho-escuro));
+    color:var(--branco);font-family:'Oswald',sans-serif;
+    text-transform:uppercase;letter-spacing:.15em;border-radius:6px;
+    box-shadow:0 12px 30px -8px rgba(227,6,19,.6);transition:transform .2s;
+  }
+  .cta:hover{transform:scale(1.05)}
+  .hero-logo{display:flex;justify-content:center;position:relative;align-items:center}
+
+  /* glow blob */
+  .hero-logo::before{
+    content:"";position:absolute;width:320px;height:320px;
+    background:radial-gradient(circle,rgba(227,6,19,.55) 0%,rgba(227,6,19,.15) 50%,transparent 75%);
+    border-radius:50%;
+    animation:glowPulse 3s ease-in-out infinite;
+  }
+
+  /* spinning ring */
+  .hero-logo::after{
+    content:"";position:absolute;
+    width:370px;height:370px;border-radius:50%;
+    border:1.5px solid rgba(227,6,19,.25);
+    border-top-color:rgba(227,6,19,.8);
+    border-right-color:rgba(227,6,19,.5);
+    animation:spinRing 8s linear infinite;
+  }
+
+  .hero-logo img{
+    position:relative;height:340px;width:auto;
+    filter:drop-shadow(0 0 28px rgba(227,6,19,.7)) drop-shadow(0 20px 50px rgba(0,0,0,.8));
+    animation:floatShield 4s ease-in-out infinite;
+    transform-origin:center center;
+    z-index:2;
+  }
+
+  /* second pulse ring */
+  .shield-ring{
+    position:absolute;width:410px;height:410px;border-radius:50%;
+    border:1px solid rgba(227,6,19,.12);
+    animation:pulseRing 3s ease-out infinite;
+    pointer-events:none;z-index:1;
+  }
+
+  @keyframes floatShield{
+    0%,100%{transform:translateY(0) rotate(-1deg)}
+    50%{transform:translateY(-18px) rotate(1deg)}
+  }
+  @keyframes glowPulse{
+    0%,100%{transform:scale(1);opacity:.7}
+    50%{transform:scale(1.25);opacity:1}
+  }
+  @keyframes spinRing{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+  }
+  @keyframes pulseRing{
+    0%{transform:scale(.85);opacity:.6}
+    70%{transform:scale(1.2);opacity:0}
+    100%{transform:scale(1.2);opacity:0}
+  }
+
+  .hero-logo img:hover{
+    animation:floatShield 4s ease-in-out infinite, shieldHover .3s ease forwards;
+    filter:drop-shadow(0 0 45px rgba(227,6,19,.95)) drop-shadow(0 20px 50px rgba(0,0,0,.8));
+  }
+  @keyframes shieldHover{
+    to{transform:translateY(-8px) scale(1.06)}
+  }
+
+  @media(max-width:760px){.hero-inner{grid-template-columns:1fr;text-align:center}.hero-logo img{height:220px}.hero p.lead{margin-inline:auto}.hero-logo::after{width:260px;height:260px}.shield-ring{width:290px;height:290px}.hero-logo::before{width:220px;height:220px}}
+  @media(max-width:760px){.hero-inner{grid-template-columns:1fr;text-align:center}.hero-logo img{height:220px}.hero p.lead{margin-inline:auto}}
+
+  /* SECTIONS */
+  section.bloco{max-width:1100px;margin:0 auto;padding:80px 24px}
+  section.bloco h2{
+    font-size:clamp(2rem,4vw,3rem);color:var(--branco);
+    border-left:6px solid var(--vermelho);padding-left:18px;margin-bottom:30px;
+  }
+  section.bloco p{margin-bottom:16px;color:#e6e6e6}
+  .alt{background:#101010;border-top:1px solid #222;border-bottom:1px solid #222}
+
+  /* CORES */
+  .cores{display:flex;gap:20px;margin-top:24px;flex-wrap:wrap}
+  .cor{
+    flex:1;min-width:140px;padding:30px;border-radius:8px;
+    text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;
+    border:1px solid #2a2a2a;
+  }
+  .cor.v{background:var(--vermelho);color:#fff}
+  .cor.p{background:var(--preto);color:#fff;border-color:#444}
+  .cor.b{background:var(--branco);color:#000}
+
+  /* TIMELINE */
+  .timeline{position:relative;margin-top:30px;padding-left:30px;border-left:3px solid var(--vermelho)}
+  .item{
+    position:relative;margin-bottom:36px;padding:20px 22px;
+    background:#141414;border-radius:8px;border:1px solid #232323;
+    cursor:pointer;transition:border-color .25s, background .25s;
+  }
+  .item:hover{border-color:var(--vermelho);background:#1c0405}
+  .item::before{
+    content:"";position:absolute;left:-43px;top:24px;
+    width:18px;height:18px;border-radius:50%;background:var(--vermelho);
+    box-shadow:0 0 0 5px var(--preto),0 0 16px rgba(227,6,19,.7);
+  }
+  .item .ano{font-family:'Oswald',sans-serif;color:var(--vermelho);font-size:1.6rem}
+  .item h3{font-size:1.2rem;margin:4px 0 10px}
+
+  /* TIMELINE FILTER */
+  .filtros{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+  .filtro-btn{
+    padding:7px 18px;border:1px solid #444;border-radius:20px;
+    background:transparent;color:var(--cinza);font-size:.82rem;
+    font-weight:600;letter-spacing:.08em;cursor:pointer;transition:all .2s;
+    text-transform:uppercase;
+  }
+  .filtro-btn:hover,.filtro-btn.ativo{
+    background:var(--vermelho);border-color:var(--vermelho);color:#fff;
+  }
+
+  /* TÍTULOS */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:24px}
+  .card{
+    background:linear-gradient(180deg,#1a1a1a,#0e0e0e);
+    border:1px solid #2a2a2a;border-radius:10px;padding:24px;
+    transition:border-color .2s,transform .2s;
+  }
+  .card:hover{border-color:var(--vermelho);transform:translateY(-4px)}
+  .card .num{font-family:'Oswald',sans-serif;font-size:3rem;color:var(--vermelho);line-height:1}
+  .card h4{font-family:'Oswald',sans-serif;text-transform:uppercase;margin-top:8px;font-size:1.05rem}
+  .card p{font-size:.9rem;color:var(--cinza);margin-top:6px}
+
+  /* ÍDOLOS */
+  .idolos-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;margin-top:30px;
+  }
+  .idol-card{
+    background:linear-gradient(145deg,#1a0204,#111);
+    border:1px solid #2a0a0a;border-radius:12px;padding:26px;
+    transition:all .3s;position:relative;overflow:hidden;
+  }
+  .idol-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--vermelho),transparent);
+    transition:width .3s;
+  }
+  .idol-card:hover{border-color:var(--vermelho);transform:translateY(-5px);box-shadow:0 16px 40px -12px rgba(227,6,19,.4)}
+  .idol-num{
+    font-family:'Oswald',sans-serif;font-size:2.8rem;
+    color:rgba(227,6,19,.15);position:absolute;top:16px;right:20px;line-height:1;
+  }
+  .idol-pos{
+    display:inline-block;padding:3px 12px;border-radius:20px;
+    background:rgba(227,6,19,.15);color:var(--vermelho);
+    font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+    margin-bottom:12px;
+  }
+  .idol-name{font-family:'Oswald',sans-serif;font-size:1.55rem;line-height:1.1;margin-bottom:10px}
+  .idol-era{font-size:.8rem;color:var(--cinza);letter-spacing:.08em;margin-bottom:12px;font-weight:600;text-transform:uppercase}
+  .idol-bio{font-size:.88rem;color:#c8c8c8;line-height:1.6}
+  .idol-stats{
+    display:flex;gap:14px;margin-top:16px;padding-top:14px;
+    border-top:1px solid #2a2a2a;flex-wrap:wrap;
+  }
+  .stat{text-align:center}
+  .stat-val{font-family:'Oswald',sans-serif;font-size:1.3rem;color:var(--vermelho)}
+  .stat-label{font-size:.72rem;color:var(--cinza);text-transform:uppercase;letter-spacing:.08em}
+
+  /* QUIZ */
+  .quiz-wrap{
+    background:linear-gradient(135deg,#130204,#0a0a0a);
+    border:1px solid #2a0a0a;border-radius:14px;padding:36px;margin-top:40px;
+  }
+  .quiz-wrap h3{font-size:1.8rem;margin-bottom:6px}
+  .quiz-wrap .sub{color:var(--cinza);font-size:.9rem;margin-bottom:28px}
+  .quiz-pergunta{font-size:1.15rem;font-weight:600;margin-bottom:20px;line-height:1.5}
+  .quiz-opcoes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:560px){.quiz-opcoes{grid-template-columns:1fr}}
+  .opcao{
+    padding:14px 18px;border:1px solid #333;border-radius:8px;
+    background:#141414;cursor:pointer;text-align:left;
+    font-size:.9rem;color:var(--cinza);transition:all .2s;
+    font-family:'Inter',sans-serif;
+  }
+  .opcao:hover:not(:disabled){border-color:var(--vermelho);color:#fff;background:#1a0203}
+  .opcao.certa{border-color:#2cb67d!important;background:rgba(44,182,125,.12)!important;color:#2cb67d!important}
+  .opcao.errada{border-color:#e30613!important;background:rgba(227,6,19,.1)!important;color:#e85d6a!important}
+  .opcao:disabled{cursor:default}
+  .quiz-feedback{
+    margin-top:18px;padding:14px 18px;border-radius:8px;
+    font-size:.9rem;display:none;
+  }
+  .quiz-feedback.show{display:block}
+  .quiz-feedback.ok{background:rgba(44,182,125,.12);border:1px solid rgba(44,182,125,.3);color:#2cb67d}
+  .quiz-feedback.fail{background:rgba(227,6,19,.1);border:1px solid rgba(227,6,19,.3);color:#e85d6a}
+  .quiz-nav{display:flex;align-items:center;justify-content:space-between;margin-top:22px;flex-wrap:wrap;gap:12px}
+  .quiz-progress{font-size:.85rem;color:var(--cinza)}
+  .quiz-score{font-family:'Oswald',sans-serif;font-size:1.3rem;color:var(--vermelho)}
+  .btn-prox{
+    padding:10px 26px;background:var(--vermelho);color:#fff;
+    font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.1em;
+    border:none;border-radius:6px;cursor:pointer;font-size:1rem;
+    transition:opacity .2s;display:none;
+  }
+  .btn-prox.show{display:inline-block}
+  .btn-prox:hover{opacity:.85}
+  .resultado-final{text-align:center;padding:20px 0}
+  .resultado-final .big{font-family:'Oswald',sans-serif;font-size:4rem;color:var(--vermelho)}
+  .resultado-final p{color:var(--cinza);margin-top:10px}
+  .btn-reiniciar{
+    margin-top:20px;padding:12px 28px;background:transparent;
+    border:2px solid var(--vermelho);color:var(--vermelho);
+    font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.1em;
+    border-radius:6px;cursor:pointer;font-size:1rem;transition:all .2s;
+  }
+  .btn-reiniciar:hover{background:var(--vermelho);color:#fff}
+
+  /* QUOTE */
+  .quote{
+    background:linear-gradient(135deg,#1a0205,#0a0a0a);
+    text-align:center;padding:70px 24px;border-block:1px solid #222;
+  }
+  .quote blockquote{
+    font-family:'Oswald',sans-serif;font-size:clamp(1.4rem,3vw,2.2rem);
+    text-transform:uppercase;max-width:800px;margin:0 auto;line-height:1.3;
+  }
+  .quote .aspas{color:var(--vermelho);font-size:4rem;font-family:'Oswald',sans-serif;line-height:1}
+  .quote cite{display:block;margin-top:18px;color:var(--cinza);font-size:.8rem;letter-spacing:.3em;font-style:normal}
+
+  /* FOOTER */
+  footer{
+    background:#080808;border-top:3px solid var(--vermelho);
+    padding:40px 24px;text-align:center;color:var(--cinza);font-size:.85rem;
+  }
+  footer .escudos{display:flex;justify-content:center;gap:10px;margin-bottom:14px}
+  footer .escudos span{width:22px;height:22px;border-radius:50%;border:1px solid #444}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <img src="escudo.png" alt="Escudo do Santa Cruz Futebol Clube">
+      <div>
+        <span>Santa Cruz</span>
+        <small>Futebol Clube</small>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#historia">História</a></li>
+        <li><a href="#cores">Cores</a></li>
+        <li><a href="#linha">Linha do Tempo</a></li>
+        <li><a href="#titulos">Títulos</a></li>
+        <li><a href="#idolos">Ídolos</a></li>
+        <li><a href="#arruda">Arruda</a></li>
+        <li><a href="#simbolos">Símbolos</a></li>
+        <li><a href="#minha-cobra">Minha Cobra</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="badge">Desde 1914</span>
+      <h1>A Cobra<br><span class="red">Coral</span><br><span class="stroke">do Arruda</span></h1>
+      <p class="lead">Mais que um clube — uma religião pernambucana. Conheça toda a trajetória do <strong>Santa Cruz Futebol Clube</strong>, o Mais Querido do Nordeste.</p>
+      <a class="cta" href="#historia">Conhecer a história</a>
+    </div>
+    <div class="hero-logo">
+      <span class="shield-ring"></span>
+      <img src="escudo.png" alt="Escudo do Santa Cruz Futebol Clube" />
+    </div>
+  </div>
+</section>
+
+<!-- HISTÓRIA -->
+<section class="bloco" id="historia">
+  <h2>A História do Tricolor</h2>
+  <p>O <strong>Santa Cruz Futebol Clube</strong> foi fundado em <strong>3 de fevereiro de 1914</strong>, na cidade do Recife, em Pernambuco. Tudo começou no <strong>Pátio do Livramento</strong>, em frente à Igreja do Santíssimo Sacramento da Santa Cruz, onde um grupo de meninos costumava jogar bola. Inspirados pela igreja, decidiram criar um clube e batizá-lo com o mesmo nome.</p>
+  <p>O primeiro presidente foi <strong>José Vasconcelos do Rego Maciel</strong>, com apenas 12 anos de idade. Inicialmente o clube usava uniformes diversos, até consolidar suas cores oficiais: <strong>vermelho, preto e branco</strong> — o tricolor que se tornaria sagrado para milhões de torcedores.</p>
+  <p>Nos primeiros anos, o Santa Cruz enfrentou times amadores do Recife, mudou de campo várias vezes e se filiou à Liga Sportiva Pernambucana. Em <strong>1931</strong>, conquistou seu primeiro Campeonato Pernambucano, marcando o início de uma trajetória vitoriosa. Já em <strong>30 de janeiro de 1919</strong>, o Tricolor havia feito história ao vencer o Botafogo (RJ) por 3×2 — a primeira vitória de um clube nordestino sobre um time do eixo Rio-São Paulo.</p>
+  <p>Em <strong>1947</strong>, o clube adquiriu o terreno no bairro do Arruda, onde construiria, com o esforço dos próprios sócios e torcedores, o <strong>Estádio José do Rego Maciel</strong> — o lendário <strong>Arruda</strong>, inaugurado oficialmente em sua forma monumental em <strong>23 de janeiro de 1972</strong>. Tornou-se o maior estádio privado do Brasil.</p>
+  <p>A década de 1970 foi marcante: bicampeonatos, o artilheiro <strong>Ramon</strong> sagrado melhor do Brasil de 1973, grandes campanhas no Brasileirão e, em <strong>29 de julho de 1979</strong>, o Santa Cruz fez história ao receber <strong>80.157 pagantes</strong> no Arruda contra o Ceará — o maior público pagante de um jogo entre clubes da história do futebol brasileiro em estádio privado.</p>
+  <p>Em <strong>2016</strong>, o Tricolor conquistou seu maior título regional: a <strong>Copa do Nordeste</strong>, vencendo o Campinense na final. Apesar das oscilações esportivas nos anos seguintes, com passagens por todas as divisões do futebol brasileiro, a paixão da torcida nunca esmoreceu — o Arruda continua sendo um dos estádios mais bem frequentados do país.</p>
+  <p>Hoje, mais de <strong>110 anos</strong> depois de sua fundação, o Santa Cruz segue em reconstrução, focado na base e na gestão, sempre amparado pelo amor incondicional da <strong>Torcida Coral</strong>, considerada uma das maiores e mais apaixonadas do Brasil.</p>
+</section>
+
+<!-- CORES -->
+<section class="bloco alt" id="cores">
+  <h2>As Cores do Tricolor</h2>
+  <p>O vermelho, o preto e o branco formam a identidade visual do Santa Cruz desde os primeiros anos do clube. Cada cor representa a essência da Cobra Coral:</p>
+  <div class="cores">
+    <div class="cor v">Vermelho<br><small style="font-family:Inter;font-weight:400;letter-spacing:0;text-transform:none">Paixão e raça</small></div>
+    <div class="cor p">Preto<br><small style="font-family:Inter;font-weight:400;letter-spacing:0;text-transform:none">Força e tradição</small></div>
+    <div class="cor b">Branco<br><small style="font-family:Inter;font-weight:400;letter-spacing:0;text-transform:none">Paz e fé</small></div>
+  </div>
+</section>
+
+<!-- LINHA DO TEMPO -->
+<section class="bloco" id="linha">
+  <h2>Linha do Tempo</h2>
+
+  <div class="filtros">
+    <button class="filtro-btn ativo" onclick="filtrarTimeline('todos',this)">Todos</button>
+    <button class="filtro-btn" onclick="filtrarTimeline('titulo',this)">Títulos</button>
+    <button class="filtro-btn" onclick="filtrarTimeline('recorde',this)">Recordes</button>
+    <button class="filtro-btn" onclick="filtrarTimeline('estrutura',this)">Estrutura</button>
+  </div>
+
+  <div class="timeline">
+    <div class="item" data-cat="estrutura"><div class="ano">1914</div><h3>Fundação no Pátio do Livramento</h3><p>Em 3 de fevereiro, nasce o Santa Cruz Foot-Ball Club, no centro do Recife.</p></div>
+    <div class="item" data-cat="recorde"><div class="ano">1919</div><h3>Primeira vitória histórica sobre o Sul</h3><p>Santa Cruz 3×2 Botafogo — a primeira vitória de um clube nordestino sobre um time do eixo Rio-São Paulo.</p></div>
+    <div class="item" data-cat="titulo"><div class="ano">1931</div><h3>Primeiro Pernambucano</h3><p>O clube conquista seu primeiro título estadual oficial, com Tará como protagonista.</p></div>
+    <div class="item" data-cat="estrutura"><div class="ano">1947</div><h3>Chegada ao Arruda</h3><p>Compra do terreno onde nasceria o maior estádio privado do Brasil.</p></div>
+    <div class="item" data-cat="titulo"><div class="ano">1957–1960</div><h3>Tetracampeonato Pernambucano</h3><p>Quatro títulos estaduais consecutivos — era de ouro do Tricolor.</p></div>
+    <div class="item" data-cat="estrutura"><div class="ano">1972</div><h3>Inauguração definitiva do Arruda</h3><p>O caldeirão coral é entregue à torcida em sua forma monumental.</p></div>
+    <div class="item" data-cat="recorde"><div class="ano">1973</div><h3>Ramon, artilheiro do Brasil</h3><p>Com 21 gols, Ramon se torna o primeiro nordestino artilheiro do Campeonato Brasileiro, superando Pelé (18 gols).</p></div>
+    <div class="item" data-cat="recorde"><div class="ano">1979</div><h3>Maior público da história</h3><p>80.157 pagantes no Arruda contra o Ceará — recorde brasileiro entre clubes em estádio privado.</p></div>
+    <div class="item" data-cat="titulo"><div class="ano">1987–1989</div><h3>Tricampeonato Pernambucano</h3><p>Mais uma era de domínio estadual, com grandes ídolos da história do clube.</p></div>
+    <div class="item" data-cat="titulo"><div class="ano">2005</div><h3>Acesso à Série A</h3><p>O Tricolor retorna à elite do futebol brasileiro.</p></div>
+    <div class="item" data-cat="titulo"><div class="ano">2011–2013</div><h3>Tricampeonato Pernambucano + Série C</h3><p>Três estaduais consecutivos e o título nacional da Série C em 2013, com acesso à Série B.</p></div>
+    <div class="item" data-cat="titulo"><div class="ano">2016</div><h3>Campeão da Copa do Nordeste</h3><p>Maior título regional da história do clube, conquistado sobre o Campinense. Grafite um dos heróis.</p></div>
+    <div class="item" data-cat="estrutura"><div class="ano">2020 — Hoje</div><h3>Reconstrução e fé tricolor</h3><p>Mesmo nas divisões de acesso, a torcida continua provando que o amor pela Cobra Coral é eterno.</p></div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote">
+  <div class="aspas">"</div>
+  <img src="torcida.png" alt="" class="idol-foto">
+  <blockquote>Junta mais essa vitória,
+Santa Cruz! Santa Cruz!
+Ao teu passado de glória!
+És o querido do povo,
+O terror do Nordeste no gramado,
+Tuas vitórias de hoje
+Nos lembram vitórias do passado.
+Clube querido da multidão,
+Tu és o super campeão!</blockquote>
+  <cite>— Hino da torcida</cite>
+</div>
+
+<!-- TÍTULOS -->
+<section class="bloco" id="titulos">
+  <h2>Principais Títulos</h2>
+  <div class="grid">
+    <div class="card"><div class="num">29</div><h4>Campeonatos Pernambucanos</h4><p>Um dos maiores vencedores do estado, incluindo 3 Supercampeonatos — único tri-supercampeão de PE.</p></div>
+    <div class="card"><div class="num">1</div><h4>Copa do Nordeste</h4><p>Conquista histórica em 2016 sobre o Campinense.</p></div>
+    <div class="card"><div class="num">1</div><h4>Série C do Brasileirão</h4><p>Campeão em 2013, garantindo acesso à Série B.</p></div>
+    <div class="card"><div class="num">1</div><h4>Copa Norte-Nordeste</h4><p>Taça Hexagonal do Norte/Nordeste de 1967, reconhecida pela CBF.</p></div>
+    <div class="card"><div class="num">4</div><h4>Copas Pernambuco</h4><p>Mais troféus estaduais na galeria coral.</p></div>
+    <div class="card"><div class="num">+80mil</div><h4>Recorde no Arruda</h4><p>Maior público pagante entre clubes em estádio privado do Brasil (1979).</p></div>
+  </div>
+</section>
+
+<!-- ÍDOLOS -->
+<section class="bloco alt" id="idolos">
+  <h2>Os Ídolos da Cobra Coral</h2>
+  <p>Mais de 110 anos de história produziram craques que marcaram gerações de torcedores. Esses são os eternos ídolos do Santa Cruz:</p>
+
+  <div class="idolos-grid">
+
+    <div class="idol-card">
+      <span class="idol-num">1</span>
+      <span class="idol-pos">Atacante</span>
+      <div class="idol-name">Tará</div>
+      <div class="idol-era">1927 – 1940</div>
+      <img src="tara.png" alt="Tará" class="idol-foto">
+      <p class="idol-bio">Considerado por muitos o maior jogador da história de Pernambuco. Humberto de Azevedo Viana foi o protagonista dos primeiros títulos do clube. Pioneiro e símbolo da era áurea dos anos 30.</p>
+      <div class="idol-stats">
+        <div class="stat"><div class="stat-val">207</div><div class="stat-label">Gols</div></div>
+        <div class="stat"><div class="stat-val">3×</div><div class="stat-label">Camp. PE</div></div>
+        <div class="stat"><div class="stat-val">Maior</div><div class="stat-label">Artilheiro</div></div>
+      </div>
+    </div>
+
+    <div class="idol-card">
+      <span class="idol-num">2</span>
+      <span class="idol-pos">Volante</span>
+      <div class="idol-name">Givanildo</div>
+      <div class="idol-era">1969 – 1979</div>
+      <img src="givanildo.png" alt="" class="idol-foto">
+      <p class="idol-bio">O jogador com mais partidas na história do clube — 599 jogos. Conquistou 8 títulos estaduais com a camisa coral e chegou à Seleção Brasileira em 1976. Como técnico, ainda ganhou mais um estadual pelo Santa, em 2005.</p>
+      <div class="idol-stats">
+        <div class="stat"><div class="stat-val">599</div><div class="stat-label">Jogos</div></div>
+        <div class="stat"><div class="stat-val">8×</div><div class="stat-label">Camp. PE</div></div>
+        <div class="stat"><div class="stat-val">Seleção</div><div class="stat-label">Brasileira</div></div>
+      </div>
+    </div>
+
+    <div class="idol-card">
+      <span class="idol-num">3</span>
+      <span class="idol-pos">Atacante</span>
+      <div class="idol-name">Ramon</div>
+      <div class="idol-era">1969 – 1975</div>
+      <img src="ramon.png" alt="" class="idol-foto">
+      <p class="idol-bio">Cria da casa e maior artilheiro do século XX no clube. Em 1973, foi o artilheiro do Campeonato Brasileiro com 21 gols — o primeiro nordestino a conquistar a artilharia nacional, superando Pelé. Esteve nos 40 pré-selecionados para a Copa de 1974.</p>
+      <div class="idol-stats">
+        <div class="stat"><div class="stat-val">377</div><div class="stat-label">Jogos</div></div>
+        <div class="stat"><div class="stat-val">148</div><div class="stat-label">Gols</div></div>
+        <div class="stat"><div class="stat-val">5×</div><div class="stat-label">Camp. PE</div></div>
+      </div>
+    </div>
+
+    <div class="idol-card">
+      <span class="idol-num">4</span>
+      <span class="idol-pos">Atacante</span>
+      <div class="idol-name">Nunes</div>
+      <div class="idol-era">1976 – 1979</div>
+      <img src="nunes.png" alt="" class="idol-foto">
+      <p class="idol-bio">João Batista Nunes passou pelo Santa Cruz antes de se tornar ídolo no Flamengo, sendo campeão da Libertadores e do Mundial de 1981. Pelo Tricolor, é o maior artilheiro em Campeonatos Brasileiros (43 gols em 72 jogos) e foi artilheiro do estadual de 1977, com 23 gols.</p>
+      <div class="idol-stats">
+        <div class="stat"><div class="stat-val">84</div><div class="stat-label">Gols</div></div>
+        <div class="stat"><div class="stat-val">43</div><div class="stat-label">Gols Bras.</div></div>
+        <div class="stat"><div class="stat-val">Seleção</div><div class="stat-label">Brasileira</div></div>
+      </div>
+    </div>
+
+    <div class="idol-card">
+      <span class="idol-num">5</span>
+      <span class="idol-pos">Atacante</span>
+      <div class="idol-name">Grafite</div>
+      <div class="idol-era">2001–02 · 2015–16</div>
+      <img src="grafite.png" alt="" class="idol-foto">
+      <p class="idol-bio">Sem nunca ter passado por uma base, Grafite chegou ao Santa Cruz como aposta e voltou duas vezes. Em sua terceira passagem, foi fundamental no acesso à Série A, na Série C e no bicampeonato estadual. Marcou 47 gols no total pelo clube e nunca esqueceu as cores corais.</p>
+      <div class="idol-stats">
+        <div class="stat"><div class="stat-val">47</div><div class="stat-label">Gols</div></div>
+        <div class="stat"><div class="stat-val">3</div><div class="stat-label">Passagens</div></div>
+        <div class="stat"><div class="stat-val">Copa NO</div><div class="stat-label">2016</div></div>
+      </div>
+    </div>
+
+    <div class="idol-card">
+      <span class="idol-num">6</span>
+      <span class="idol-pos">Lateral-esquerdo</span>
+      <div class="idol-name">Luciano Veloso</div>
+      <div class="idol-era">Anos 1970</div>
+      <img src="veloso.png" alt="" class="idol-foto">
+      <p class="idol-bio">Convocado 13 vezes para a Seleção Brasileira, foi campeão do Torneio Bicentenário dos EUA em 1976 com a camisa do Santa Cruz. Considerado o maior lateral-esquerdo da história do clube e um dos mais votados na Seleção do Centenário coral.</p>
+      <div class="idol-stats">
+        <div class="stat"><div class="stat-val">13×</div><div class="stat-label">Seleção</div></div>
+        <div class="stat"><div class="stat-val">1976</div><div class="stat-label">Bi-Sup. PE</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-wrap">
+    <h3>Quiz do Torcedor Coral</h3>
+    <p class="sub">Teste seu conhecimento sobre os ídolos e a história do Santa Cruz!</p>
+
+    <div id="quiz-conteudo">
+      <div class="quiz-pergunta" id="q-texto"></div>
+      <div class="quiz-opcoes" id="q-opcoes"></div>
+      <div class="quiz-feedback" id="q-feedback"></div>
+      <div class="quiz-nav">
+        <div>
+          <div class="quiz-progress" id="q-progress">Pergunta 1 de 8</div>
+          <div class="quiz-score" id="q-score">Pontuação: 0</div>
+        </div>
+        <button class="btn-prox" id="btn-prox" onclick="proximaPergunta()">Próxima →</button>
+      </div>
+    </div>
+
+    <div id="quiz-resultado" style="display:none">
+      <div class="resultado-final">
+        <div class="big" id="res-num">0/8</div>
+        <p id="res-msg"></p>
+        <button class="btn-reiniciar" onclick="reiniciarQuiz()">Jogar Novamente</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARRUDA -->
+<section class="bloco" id="arruda">
+  <h2>Estádio do Arruda</h2>
+  <p>Localizado no bairro do Arruda, na zona norte do Recife, o <strong>Estádio José do Rego Maciel</strong> é o maior estádio privado do Brasil. Construído com o esforço de sócios e torcedores, foi inaugurado em sua forma definitiva em 23 de janeiro de 1972.</p>
+  <p>Com capacidade atual para cerca de <strong>60.044 torcedores</strong>, o Arruda é considerado um dos caldeirões mais imponentes do futebol brasileiro. Em 1979, recebeu o maior público pagante da história entre dois clubes em estádio privado: <strong>80.157 pessoas</strong> no clássico contra o Ceará.</p>
+  <p>O estádio é símbolo da força do Santa Cruz, palco de glórias inesquecíveis e do amor incondicional da Torcida Coral.</p>
+</section>
+
+<!-- SÍMBOLOS -->
+<section class="bloco" id="simbolos">
+  <h2>Símbolos do Clube</h2>
+  <p><strong>Escudo:</strong> traz a Cruz de Cristo ao centro, em referência à Igreja do Santíssimo Sacramento da Santa Cruz, no Pátio do Livramento — local de fundação do clube. As três faixas verticais nas cores vermelha, preta e branca representam a tradicional indumentária tricolor.</p>
+  <p><strong>Mascote:</strong> a <strong>Cobra Coral</strong> — apelido carinhoso dado pela torcida, em referência à serpente venenosa típica do Nordeste, símbolo de força e perigo para os adversários.</p>
+  <p><strong>Hino:</strong> composto por Lourival Oliveira, é um dos mais belos hinos do futebol brasileiro e ecoa pelo Arruda em todos os jogos, com a torcida cantando emocionada do começo ao fim.</p>
+  <p><strong>Apelidos:</strong> Tricolor do Arruda, Cobra Coral, Mais Querido, Time do Povo.</p>
+</section>
+
+<!-- MINHA COBRA -->
+<section class="bloco alt" id="minha-cobra">
+  <h2>Minha Cobra nas Ladeiras de Olinda</h2>
+
+  <p>
+    Além do futebol, o Santa Cruz também marca presença na maior festa popular de Pernambuco: o Carnaval.
+    Uma das maiores manifestações da paixão coral é a tradicional
+    <strong>Troça Carnavalesca Mista Ofídica Etílica Erótica Minha Cobra</strong>,
+    conhecida simplesmente como <strong>Minha Cobra</strong>.
+  </p>
+
+  <p>
+    Fundado em <strong>2006</strong>, o bloco reúne milhares de tricolores pelas históricas ladeiras de
+    Olinda, misturando futebol, frevo, cultura popular e a paixão pelo Santa Cruz Futebol Clube.
+  </p>
+
+  <p>
+    O desfile acontece tradicionalmente durante o Carnaval, levando uma enorme
+    <strong>Cobra Coral</strong> pelas ruas da Cidade Alta. Torcedores vestidos de vermelho,
+    preto e branco acompanham orquestras de frevo, bandeiras do clube e homenagens
+    a ídolos que fizeram parte da história do Santa Cruz.
+  </p>
+
+  <p>
+    Com o passar dos anos, o Minha Cobra se tornou um dos blocos carnavalescos mais
+    tradicionais ligados a um clube de futebol no Brasil, atraindo não apenas torcedores,
+    mas também turistas e admiradores da cultura pernambucana.
+  </p>
+
+  <p>
+    Mais do que um bloco, o Minha Cobra representa a união entre o futebol e o Carnaval,
+    duas paixões do povo pernambucano. Todos os anos, milhares de corais transformam
+    as ladeiras de Olinda em um verdadeiro mar vermelho, preto e branco.
+  </p>
+
+  <div class="quote" style="margin-top:40px;border-radius:12px;">
+    <div class="aspas">"</div>
+     <img src="minhacobra.png" alt="" class="idol-foto">
+    <blockquote>
+      Ai que coisa linda, a Minha Cobra nas ladeiras de Olinda!
+    </blockquote>
+    <cite>— Grito tradicional da torcida coral</cite>
+  </div>
+</section>
+
+<footer>
+  <div class="escudos">
+    <span style="background:var(--vermelho)"></span>
+    <span style="background:var(--preto)"></span>
+    <span style="background:var(--branco)"></span>
+  </div>
+  <p><strong>Santa Cruz Futebol Clube</strong> — Fundado em 3 de fevereiro de 1914</p>
+  <p style="margin-top:8px;font-size:.75rem">Site informativo de fã. Todos os direitos da marca pertencem ao Santa Cruz Futebol Clube.</p>
+</footer>
+
+<script>
+/* -------- TIMELINE FILTER -------- */
+function filtrarTimeline(cat, btn) {
+  document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+  btn.classList.add('ativo');
+  document.querySelectorAll('.item').forEach(el => {
+    el.style.display = (cat === 'todos' || el.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+
+/* -------- QUIZ -------- */
+const perguntas = [
+  {
+    p: "Em que ano o Santa Cruz Futebol Clube foi fundado?",
+    ops: ["1910","1914","1920","1918"],
+    c: 1,
+    exp: "O Santa Cruz foi fundado em 3 de fevereiro de 1914, no Pátio do Livramento, Recife."
+  },
+  {
+    p: "Quem é o maior artilheiro da história do Santa Cruz, com 207 gols?",
+    ops: ["Ramon","Nunes","Grafite","Tará"],
+    c: 3,
+    exp: "Tará (Humberto de Azevedo Viana) é o maior goleador da história coral, com 207 gols nas décadas de 1920 a 40."
+  },
+  {
+    p: "Em 1973, Ramon se tornou artilheiro do Campeonato Brasileiro superando qual craque?",
+    ops: ["Rivelino","Zico","Pelé","Tostão"],
+    c: 2,
+    exp: "Ramon fez 21 gols e superou Pelé (18 gols), tornando-se o primeiro nordestino artilheiro do Brasileiro."
+  },
+  {
+    p: "Qual é a capacidade atual do Estádio do Arruda?",
+    ops: ["45.000","80.000","60.044","70.000"],
+    c: 2,
+    exp: "A capacidade atual do Arruda é de aproximadamente 60.044 torcedores."
+  },
+  {
+    p: "Quantas partidas Givanildo Oliveira disputou pelo Santa Cruz, tornando-se recordista?",
+    ops: ["400","500","599","650"],
+    c: 2,
+    exp: "Givanildo disputou 599 partidas pelo Santa Cruz entre 1969 e 1979 — o maior número da história do clube."
+  },
+  {
+    p: "Em que ano o Santa Cruz conquistou a Copa do Nordeste, seu maior título regional?",
+    ops: ["2013","2015","2016","2005"],
+    c: 2,
+    exp: "Em 2016, o Tricolor venceu o Campinense na final e conquistou a Copa do Nordeste."
+  },
+  {
+    p: "Qual foi o recorde de público no Arruda, obtido em 1979?",
+    ops: ["65.000","72.000","75.000","80.157"],
+    c: 3,
+    exp: "Em 29 de julho de 1979, 80.157 pagantes lotaram o Arruda no jogo contra o Ceará — recorde em estádio privado."
+  },
+  {
+    p: "Antes de ser ídolo no Flamengo (Libertadores e Mundial de 1981), qual ídolo coral passou pelo Santa Cruz?",
+    ops: ["Rivellino","Nunes","Zico","Romário"],
+    c: 1,
+    exp: "Nunes jogou no Santa Cruz entre 1976 e 1979, onde foi artilheiro estadual, antes de brilhar no Flamengo."
+  }
+];
+
+let atual = 0, pontos = 0, respondido = false;
+
+function carregarPergunta() {
+  const q = perguntas[atual];
+  document.getElementById('q-texto').textContent = q.p;
+  document.getElementById('q-progress').textContent = `Pergunta ${atual + 1} de ${perguntas.length}`;
+  document.getElementById('q-score').textContent = `Pontuação: ${pontos}`;
+  const cont = document.getElementById('q-opcoes');
+  cont.innerHTML = '';
+  q.ops.forEach((op, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opcao';
+    btn.textContent = op;
+    btn.onclick = () => responder(i, btn);
+    cont.appendChild(btn);
+  });
+  const fb = document.getElementById('q-feedback');
+  fb.className = 'quiz-feedback';
+  fb.textContent = '';
+  document.getElementById('btn-prox').classList.remove('show');
+  respondido = false;
+}
+
+function responder(idx, btnEl) {
+  if (respondido) return;
+  respondido = true;
+  const q = perguntas[atual];
+  const botoesOpcao = document.querySelectorAll('.opcao');
+  botoesOpcao.forEach(b => b.disabled = true);
+  const fb = document.getElementById('q-feedback');
+  if (idx === q.c) {
+    pontos++;
+    btnEl.classList.add('certa');
+    fb.className = 'quiz-feedback show ok';
+    fb.textContent = '✓ Correto! ' + q.exp;
+  } else {
+    btnEl.classList.add('errada');
+    botoesOpcao[q.c].classList.add('certa');
+    fb.className = 'quiz-feedback show fail';
+    fb.textContent = '✗ Incorreto. ' + q.exp;
+  }
+  document.getElementById('q-score').textContent = `Pontuação: ${pontos}`;
+  document.getElementById('btn-prox').classList.add('show');
+  if (atual === perguntas.length - 1) {
+    document.getElementById('btn-prox').textContent = 'Ver resultado →';
+  }
+}
+
+function proximaPergunta() {
+  atual++;
+  if (atual >= perguntas.length) {
+    mostrarResultado();
+  } else {
+    carregarPergunta();
+  }
+}
+
+function mostrarResultado() {
+  document.getElementById('quiz-conteudo').style.display = 'none';
+  document.getElementById('quiz-resultado').style.display = 'block';
+  document.getElementById('res-num').textContent = `${pontos}/${perguntas.length}`;
+  const msgs = [
+    "Precisa estudar mais a história coral! Mas a paixão já é o primeiro passo.",
+    "Bom começo! O Arruda ainda tem segredos pra te revelar.",
+    "Boa performance! Você claramente tem sangue tricolor.",
+    "Quase perfeito! Digno de torcedor nato do Mais Querido.",
+    "INCRÍVEL! Você é um verdadeiro Cobra Coral! 🐍"
+  ];
+  const idx = pontos <= 2 ? 0 : pontos <= 4 ? 1 : pontos <= 6 ? 2 : pontos === 7 ? 3 : 4;
+  document.getElementById('res-msg').textContent = msgs[idx];
+}
+
+function reiniciarQuiz() {
+  atual = 0; pontos = 0; respondido = false;
+  document.getElementById('quiz-conteudo').style.display = 'block';
+  document.getElementById('quiz-resultado').style.display = 'none';
+  document.getElementById('btn-prox').textContent = 'Próxima →';
+  carregarPergunta();
+}
+
+carregarPergunta();
+</script>
+
+</body>
+</html>
